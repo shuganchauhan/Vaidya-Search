@@ -3,7 +3,7 @@
 > India's most trusted doctor discovery and review platform — bridging the gap between patients and verified doctors across Bharat.
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react)
-![Claude API](https://img.shields.io/badge/Claude-API-D97757?style=flat)
+![Gemini API](https://img.shields.io/badge/Gemini-API-D97757?style=flat)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=flat&logo=tailwind-css)
 
@@ -122,9 +122,9 @@ Create a `.env` file in the root:
 
 ```env
 # Anthropic Claude API
-VITE_ANTHROPIC_API_KEY=your_claude_api_key
+VITE_ANTHROPIC_API_KEY=your_gemini_api_key
 
-# Firebase
+# Firebase(later)
 VITE_FIREBASE_API_KEY=your_firebase_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=your_project_id
@@ -210,15 +210,18 @@ vaidyasearch/
 
 | Name | Role |
 |---|---|
-| **Your Name Here** | Full Stack Frontend Developer |
+| **Shagun Chauhan** | AI & Features |
+| **Pranav Tyagi** | Data & Maps |
+| **Shuvans Rajesh Gupta** | UI/UX & Pages |
+
 
 ---
 
 ## 🙏 Acknowledgements
 
-- [Anthropic](https://anthropic.com) — Claude API
+- [Anthropic](https://anthropic.com) — Gemini API
 - [Leaflet.js](https://leafletjs.com) — Maps
-- [Firebase](https://firebase.google.com) — Backend
+- [Firebase](https://firebase.google.com) — Backend(later)
 - [Tailwind CSS](https://tailwindcss.com) — Styling
 
 ---
