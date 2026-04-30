@@ -212,7 +212,7 @@ vaidyasearch/
 |---|---|
 | **Shagun Chauhan** | AI & Features |
 | **Pranav Tyagi** | Data & Maps |
-| **Shuvans Rajesh Gupta** | UI/UX & Pages |
+| **Shivans Rajesh Gupta** | UI/UX & Pages |
 
 
 ---
