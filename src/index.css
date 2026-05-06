@@ -1,15 +1,35 @@
+/* Dark theme and Light theme mode implementation */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg-color: #F9FAFB;
+    --text-color: #1A1A2E;
+    --card-bg: #FFFFFF;
+    --border-color: #E5E7EB;
+    --muted-color: #6B7280;
+    --primary-color: #1D9E75;
+  }
+
+  .dark {
+    --bg-color: #0F172A;
+    --text-color: #F1F5F9;
+    --card-bg: #1E293B;
+    --border-color: #334155;
+    --muted-color: #94A3B8;
+    --primary-color: #10B981;
+  }
+
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     font-family: 'DM Sans', sans-serif;
-    background-color: #F9FAFB;
-    color: #1A1A2E;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     min-height: 100dvh;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Syne', sans-serif;

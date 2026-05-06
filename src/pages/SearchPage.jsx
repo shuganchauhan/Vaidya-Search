@@ -1,3 +1,4 @@
+/* Dark theme and Light theme mode implementation */
 import React, { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SlidersHorizontal, X, LayoutGrid, List, ChevronDown } from 'lucide-react';
@@ -14,7 +15,7 @@ function Chip({ label, active, onClick }) {
     <button onClick={onClick}
       className={`px-3 py-1 rounded-pill text-xs font-semibold border transition-all ${
         active ? 'bg-[#1D9E75] text-white border-[#1D9E75]'
-               : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#1D9E75] hover:text-[#1D9E75]'
+               : 'bg-white dark:bg-slate-800 text-[#6B7280] dark:text-slate-400 border-[#E5E7EB] dark:border-slate-700 hover:border-[#1D9E75] hover:text-[#1D9E75]'
       }`}>
       {label}
     </button>
@@ -29,9 +30,9 @@ function Sidebar({ state, handlers }) {
     setArr(prev => prev.includes(val) ? prev.filter(v => v !== val) : [...prev, val]);
 
   return (
-    <div className="bg-white rounded-card border border-[#E5E7EB] p-5 space-y-5">
+    <div className="bg-white dark:bg-slate-800 rounded-card border border-[#E5E7EB] dark:border-slate-700 p-5 space-y-5 transition-colors duration-300">
       <div className="flex items-center justify-between">
-        <h3 className="font-heading font-bold text-[#1A1A2E]">Filters</h3>
+        <h3 className="font-heading font-bold text-[#1A1A2E] dark:text-slate-100">Filters</h3>
         <button onClick={resetFilters} className="text-xs text-[#D85A30] font-semibold hover:underline">Reset</button>
       </div>
       <div>
@@ -41,7 +42,7 @@ function Sidebar({ state, handlers }) {
         </div>
       </div>
       <div>
-        <p className="text-xs font-semibold text-[#6B7280] uppercase tracking-widest mb-2">Fee Range: ₹0 – ₹{feeRange}</p>
+        <p className="text-xs font-semibold text-[#6B7280] dark:text-slate-400 uppercase tracking-widest mb-2">Fee Range: ₹0 – ₹{feeRange}</p>
         <input type="range" min={0} max={2000} step={100} value={feeRange} onChange={e => setFeeRange(Number(e.target.value))} style={{ accentColor: '#1D9E75' }} />
       </div>
       <div>
@@ -63,9 +64,9 @@ function Sidebar({ state, handlers }) {
         </div>
       </div>
       <div className="flex items-center justify-between">
-        <p className="text-sm font-medium text-[#1A1A2E]">Teleconsultation</p>
+        <p className="text-sm font-medium text-[#1A1A2E] dark:text-slate-200">Teleconsultation</p>
         <button onClick={() => setTeleconsult(!teleconsult)}
-          className={`w-12 h-6 rounded-full transition-all relative ${teleconsult ? 'bg-[#1D9E75]' : 'bg-[#E5E7EB]'}`}>
+          className={`w-12 h-6 rounded-full transition-all relative ${teleconsult ? 'bg-[#1D9E75]' : 'bg-[#E5E7EB] dark:bg-slate-700'}`}>
           <span className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-all ${teleconsult ? 'left-6' : 'left-0.5'}`} />
         </button>
       </div>
@@ -121,23 +122,23 @@ export default function SearchPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 pb-24 md:pb-6">
       <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
-        <p className="text-[#6B7280] text-sm">
-          <span className="font-bold text-[#1A1A2E]">{filtered.length} doctors</span> found in {cityParam}
+        <p className="text-[#6B7280] dark:text-slate-400 text-sm">
+          <span className="font-bold text-[#1A1A2E] dark:text-slate-100">{filtered.length} doctors</span> found in {cityParam}
         </p>
         <div className="flex items-center gap-3 flex-wrap">
-          <button className="md:hidden flex items-center gap-2 border border-[#E5E7EB] rounded-pill px-3 py-1.5 text-sm font-medium" onClick={() => setSidebarOpen(true)}>
+          <button className="md:hidden flex items-center gap-2 border border-[#E5E7EB] dark:border-slate-700 rounded-pill px-3 py-1.5 text-sm font-medium dark:text-slate-300" onClick={() => setSidebarOpen(true)}>
             <SlidersHorizontal size={16} /> Filters
           </button>
           <div className="relative">
             <select value={sortBy} onChange={e => setSortBy(e.target.value)}
-              className="border border-[#E5E7EB] rounded-input px-3 py-1.5 text-sm outline-none font-body appearance-none pr-7">
+              className="border border-[#E5E7EB] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 rounded-input px-3 py-1.5 text-sm outline-none font-body appearance-none pr-7 transition-colors">
               {['Rating', 'Fees ↑', 'Fees ↓', 'Experience', 'Distance'].map(s => <option key={s}>{s}</option>)}
             </select>
             <ChevronDown size={14} className="absolute right-2 top-1/2 -translate-y-1/2 text-[#6B7280] pointer-events-none" />
           </div>
-          <div className="flex border border-[#E5E7EB] rounded-input overflow-hidden">
+          <div className="flex border border-[#E5E7EB] dark:border-slate-700 rounded-input overflow-hidden">
             {[{ m: 'grid', Icon: LayoutGrid }, { m: 'list', Icon: List }].map(({ m, Icon }) => (
-              <button key={m} onClick={() => setViewMode(m)} className={`p-1.5 ${viewMode === m ? 'bg-[#1D9E75] text-white' : 'text-[#6B7280]'}`}>
+              <button key={m} onClick={() => setViewMode(m)} className={`p-1.5 ${viewMode === m ? 'bg-[#1D9E75] text-white' : 'text-[#6B7280] dark:text-slate-400 dark:bg-slate-800'}`}>
                 <Icon size={16} />
               </button>
             ))}
@@ -167,10 +168,10 @@ export default function SearchPage() {
       {sidebarOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
           <div className="absolute inset-0 bg-black/50" onClick={() => setSidebarOpen(false)} />
-          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-[24px] max-h-[85vh] overflow-y-auto p-5 animate-fadeIn">
+          <div className="absolute bottom-0 left-0 right-0 bg-white dark:bg-slate-900 rounded-t-[24px] max-h-[85vh] overflow-y-auto p-5 animate-fadeIn">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-heading font-bold text-lg">Filters</h3>
-              <button onClick={() => setSidebarOpen(false)}><X size={22} /></button>
+              <h3 className="font-heading font-bold text-lg dark:text-slate-100">Filters</h3>
+              <button onClick={() => setSidebarOpen(false)} className="dark:text-slate-300"><X size={22} /></button>
             </div>
             <Sidebar state={sidebarState} handlers={sidebarHandlers} />
             <button onClick={() => setSidebarOpen(false)} className="w-full mt-4 bg-[#1D9E75] text-white py-3 rounded-card font-semibold">

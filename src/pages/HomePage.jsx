@@ -1,3 +1,4 @@
+/* Dark theme and Light theme mode implementation */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPin, ChevronDown, ArrowRight, CheckCircle } from 'lucide-react';
@@ -38,23 +39,23 @@ export default function HomePage() {
           {/* Search Box */}
           <form
             onSubmit={handleSearch}
-            className="bg-white rounded-card shadow-2xl p-2 flex flex-col sm:flex-row gap-2 max-w-2xl"
+            className="bg-white dark:bg-slate-800 rounded-card shadow-2xl p-2 flex flex-col sm:flex-row gap-2 max-w-2xl transition-colors duration-300"
           >
-            <div className="flex items-center gap-2 flex-1 border border-[#E5E7EB] rounded-input px-3 py-2.5">
+            <div className="flex items-center gap-2 flex-1 border border-[#E5E7EB] dark:border-slate-700 rounded-input px-3 py-2.5">
               <MapPin size={18} className="text-[#1D9E75] flex-shrink-0" />
               <input
                 value={city}
                 onChange={e => setCity(e.target.value)}
                 placeholder="📍 Your City"
-                className="flex-1 outline-none text-[14px] font-body placeholder:text-[#6B7280]"
+                className="flex-1 outline-none text-[14px] font-body placeholder:text-[#6B7280] dark:placeholder:text-slate-500 bg-transparent dark:text-white"
               />
             </div>
-            <div className="flex items-center gap-2 flex-1 border border-[#E5E7EB] rounded-input px-3 py-2.5">
+            <div className="flex items-center gap-2 flex-1 border border-[#E5E7EB] dark:border-slate-700 rounded-input px-3 py-2.5">
               <span className="text-[#1D9E75] text-lg flex-shrink-0">🩺</span>
               <select
                 value={specialty}
                 onChange={e => setSpecialty(e.target.value)}
-                className="flex-1 outline-none text-[14px] font-body text-[#6B7280] bg-transparent"
+                className="flex-1 outline-none text-[14px] font-body text-[#6B7280] dark:text-slate-300 bg-transparent"
               >
                 <option value="">Specialty</option>
                 {SPECIALTIES.map(s => <option key={s.name}>{s.name}</option>)}
@@ -83,7 +84,7 @@ export default function HomePage() {
       </section>
 
       {/* Trust Strip */}
-      <section className="bg-white border-b border-[#E5E7EB]">
+      <section className="bg-white dark:bg-slate-900 border-b border-[#E5E7EB] dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap justify-center gap-4">
           {[
             '✓ 50,000+ Verified Doctors',
@@ -93,7 +94,7 @@ export default function HomePage() {
           ].map(t => (
             <span
               key={t}
-              className="bg-[#E1F5EE] text-[#0F6E56] text-xs font-semibold px-4 py-1.5 rounded-pill"
+              className="bg-[#E1F5EE] dark:bg-[#1D9E75]/20 text-[#0F6E56] dark:text-[#1D9E75] text-xs font-semibold px-4 py-1.5 rounded-pill"
             >
               {t}
             </span>
@@ -104,7 +105,7 @@ export default function HomePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Specialty Grid */}
         <section className="py-14">
-          <h2 className="font-heading font-bold text-2xl text-[#1A1A2E] mb-8">Popular Specialties</h2>
+          <h2 className="font-heading font-bold text-2xl text-[#1A1A2E] dark:text-slate-100 mb-8">Popular Specialties</h2>
           <div className="grid grid-cols-4 md:grid-cols-8 gap-4">
             {SPECIALTIES.map(s => (
               <button
@@ -112,10 +113,10 @@ export default function HomePage() {
                 onClick={() => navigate(`/search?specialty=${s.name}`)}
                 className="flex flex-col items-center gap-2 group"
               >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white border-2 border-[#E5E7EB] rounded-card flex items-center justify-center text-2xl sm:text-3xl group-hover:border-[#1D9E75] group-hover:-translate-y-1 transition-all shadow-sm group-hover:shadow-md">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white dark:bg-slate-800 border-2 border-[#E5E7EB] dark:border-slate-700 rounded-card flex items-center justify-center text-2xl sm:text-3xl group-hover:border-[#1D9E75] group-hover:-translate-y-1 transition-all shadow-sm group-hover:shadow-md">
                   {s.emoji}
                 </div>
-                <span className="text-[11px] text-[#6B7280] group-hover:text-[#1D9E75] font-medium text-center leading-tight">
+                <span className="text-[11px] text-[#6B7280] dark:text-slate-400 group-hover:text-[#1D9E75] font-medium text-center leading-tight">
                   {s.name}
                 </span>
               </button>
@@ -127,8 +128,8 @@ export default function HomePage() {
         <section className="py-8">
           <div className="flex items-end justify-between mb-6">
             <div>
-              <h2 className="font-heading font-bold text-2xl text-[#1A1A2E]">Featured Doctors</h2>
-              <p className="text-[#6B7280] text-sm mt-1">Hand-picked specialists with consistent patient satisfaction</p>
+              <h2 className="font-heading font-bold text-2xl text-[#1A1A2E] dark:text-slate-100">Featured Doctors</h2>
+              <p className="text-[#6B7280] dark:text-slate-400 text-sm mt-1">Hand-picked specialists with consistent patient satisfaction</p>
             </div>
             <button
               onClick={() => navigate('/search')}
@@ -147,10 +148,10 @@ export default function HomePage() {
         </section>
 
         {/* How It Works */}
-        <section className="py-14 my-8 bg-[#E1F5EE] rounded-[24px] px-6 sm:px-12">
+        <section className="py-14 my-8 bg-[#E1F5EE] dark:bg-slate-800/50 rounded-[24px] px-6 sm:px-12 transition-colors duration-300">
           <div className="text-center mb-12">
-            <h2 className="font-heading font-bold text-3xl text-[#1A1A2E]">How It Works</h2>
-            <p className="text-[#6B7280] mt-2">Getting quality care is now as simple as 1-2-3</p>
+            <h2 className="font-heading font-bold text-3xl text-[#1A1A2E] dark:text-slate-100">How It Works</h2>
+            <p className="text-[#6B7280] dark:text-slate-400 mt-2">Getting quality care is now as simple as 1-2-3</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
             {[
@@ -162,9 +163,9 @@ export default function HomePage() {
                 <div className="w-16 h-16 rounded-full bg-[#1D9E75] text-white flex items-center justify-center text-2xl shadow-lg">
                   {s.icon}
                 </div>
-                <div className="text-[#0F6E56] font-heading font-bold text-xs tracking-widest">{s.step}</div>
-                <h3 className="font-heading font-bold text-xl text-[#1A1A2E]">{s.title}</h3>
-                <p className="text-[#6B7280] text-sm max-w-[220px]">{s.desc}</p>
+                <div className="text-[#0F6E56] dark:text-[#1D9E75] font-heading font-bold text-xs tracking-widest">{s.step}</div>
+                <h3 className="font-heading font-bold text-xl text-[#1A1A2E] dark:text-slate-200">{s.title}</h3>
+                <p className="text-[#6B7280] dark:text-slate-400 text-sm max-w-[220px]">{s.desc}</p>
               </div>
             ))}
           </div>
