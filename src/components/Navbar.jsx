@@ -1,16 +1,16 @@
 /* Dark theme and Light theme mode implementation */
 import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Stethoscope, Menu, X, LogIn, Sun, Moon } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Stethoscope, Menu, X, LayoutDashboard, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
-  const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
 
   const links = [
+    { label: 'Dashboard', to: '/dashboard' },
     { label: 'Find Doctors', to: '/search' },
     { label: 'Symptom AI', to: '/symptom-checker' },
     { label: 'Compare', to: '/compare' },
@@ -56,12 +56,12 @@ export default function Navbar() {
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
-          <button
-            onClick={() => navigate('/search')}
+          <Link
+            to="/dashboard"
             className="hidden md:flex items-center gap-2 border border-[#1D9E75] text-[#1D9E75] px-4 py-2 rounded-pill text-[14px] font-semibold hover:bg-[#E1F5EE] dark:hover:bg-[#1D9E75]/10 btn-press transition-all"
           >
-            <LogIn size={16} /> Login
-          </button>
+            <LayoutDashboard size={16} /> Dashboard
+          </Link>
           <button
             className="md:hidden p-2 text-[#6B7280] dark:text-slate-400 hover:text-[#1D9E75]"
             onClick={() => setOpen(!open)}
@@ -84,9 +84,13 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <button className="mt-2 border border-[#1D9E75] text-[#1D9E75] py-2.5 rounded-pill font-semibold hover:bg-[#E1F5EE] dark:hover:bg-[#1D9E75]/10">
-            Login
-          </button>
+          <Link
+            to="/dashboard"
+            onClick={() => setOpen(false)}
+            className="mt-2 border border-[#1D9E75] text-[#1D9E75] py-2.5 rounded-pill font-semibold hover:bg-[#E1F5EE] dark:hover:bg-[#1D9E75]/10"
+          >
+            Dashboard
+          </Link>
         </div>
       )}
     </header>

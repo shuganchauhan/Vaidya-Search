@@ -7,6 +7,7 @@ import MobileBottomNav from './components/MobileBottomNav';
 import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
 import DoctorProfilePage from './pages/DoctorProfilePage';
+import UserDashboardPage from './pages/UserDashboardPage';
 import SymptomCheckerPage from './pages/SymptomCheckerPage';
 import ComparePage from './pages/ComparePage';
 import TransparencyPage from './pages/TransparencyPage';
@@ -38,6 +39,7 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/dashboard" element={<UserDashboardPage />} />
             <Route path="/doctor/:id" element={<DoctorProfilePage />} />
             <Route path="/symptom-checker" element={<SymptomCheckerPage />} />
             <Route path="/compare" element={<ComparePage />} />
