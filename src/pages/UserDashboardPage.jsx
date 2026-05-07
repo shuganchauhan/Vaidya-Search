@@ -12,6 +12,7 @@ import {
   MessageCircle,
   Search,
   ShieldCheck,
+  User,
   Video,
 } from 'lucide-react';
 import { DOCTORS } from '../data/doctors';
@@ -175,6 +176,12 @@ export default function UserDashboardPage() {
             </div>
             <div className="dash-actions flex gap-2">
               <Link
+                to="/user-profile"
+                className="bg-white text-[#0F6E56] px-4 py-2.5 rounded-input font-semibold hover:bg-[#E1F5EE] transition-colors flex items-center gap-2"
+              >
+                <User size={17} /> User Profile
+              </Link>
+              <Link
                 to="/search"
                 className="border border-white/40 text-white px-4 py-2.5 rounded-input font-semibold hover:bg-white/10 transition-colors flex items-center gap-2"
               >
@@ -265,6 +272,12 @@ export default function UserDashboardPage() {
                   </p>
                 </div>
               </div>
+              <Link
+                to="/user-profile"
+                className="block text-center mt-4 w-full border border-[#1D9E75] text-[#1D9E75] py-2.5 rounded-input font-semibold hover:bg-[#E1F5EE] dark:hover:bg-[#1D9E75]/10 transition-colors"
+              >
+                Manage Profile
+              </Link>
             </div>
 
             <div className="care-box bg-white dark:bg-slate-800 rounded-card border border-[#E5E7EB] dark:border-slate-700 p-5 transition-colors">
