@@ -9,6 +9,7 @@ import SearchPage from './pages/SearchPage';
 import DoctorProfilePage from './pages/DoctorProfilePage';
 import SymptomCheckerPage from './pages/SymptomCheckerPage';
 import ComparePage from './pages/ComparePage';
+import TransparencyPage from './pages/TransparencyPage';
 import { AppProvider } from './context/AppContext';
 
 const PageTransition = ({ children }) => {
@@ -40,6 +41,7 @@ function AppContent() {
             <Route path="/doctor/:id" element={<DoctorProfilePage />} />
             <Route path="/symptom-checker" element={<SymptomCheckerPage />} />
             <Route path="/compare" element={<ComparePage />} />
+            <Route path="/transparency" element={<TransparencyPage />} />
           </Routes>
         </PageTransition>
       </main>

@@ -11,7 +11,7 @@ export default function DoctorCard({ doctor, compact = false }) {
   const inCompare = isInCompare(doctor.id);
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-card border border-[#E5E7EB] dark:border-slate-700 card-hover relative flex flex-col group overflow-hidden transition-all duration-300">
+    <div className="h-full bg-white dark:bg-slate-800 rounded-card border border-[#E5E7EB] dark:border-slate-700 card-hover relative flex flex-col group overflow-hidden transition-all duration-300">
       {/* Top bar */}
       <div className="flex items-start justify-between p-4 pb-2">
         {/* Avatar */}

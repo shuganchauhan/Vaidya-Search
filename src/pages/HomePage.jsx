@@ -30,7 +30,7 @@ export default function HomePage() {
 
           {/* H1 */}
           <h1 className="font-heading font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight max-w-2xl mb-4">
-            Find the Right Doctor Near You 🇮🇳
+            Find the Right Doctor Near You
           </h1>
           <p className="text-white/80 text-base sm:text-lg mb-10 max-w-lg">
             50,000+ verified doctors across 500+ cities in India
@@ -138,9 +138,9 @@ export default function HomePage() {
               View All <ArrowRight size={16} />
             </button>
           </div>
-          <div className="flex gap-5 overflow-x-auto pb-4 hide-scrollbar">
+          <div className="flex items-stretch gap-5 overflow-x-auto pb-4 hide-scrollbar">
             {DOCTORS.map(doc => (
-              <div key={doc.id} className="flex-shrink-0 w-[280px]">
+              <div key={doc.id} className="flex-shrink-0 w-[280px] flex flex-col">
                 <DoctorCard doctor={doc} />
               </div>
             ))}

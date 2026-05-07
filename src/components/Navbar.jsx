@@ -14,10 +14,11 @@ export default function Navbar() {
     { label: 'Find Doctors', to: '/search' },
     { label: 'Symptom AI', to: '/symptom-checker' },
     { label: 'Compare', to: '/compare' },
+    { label: 'Transparency', to: '/transparency' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-[#E5E7EB] dark:border-slate-800 shadow-sm transition-colors duration-300">
+    <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-[#E5E7EB] dark:border-slate-800 shadow-sm transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 flex-shrink-0">
